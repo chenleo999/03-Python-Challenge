@@ -1,11 +1,11 @@
 # import modules
 import os, csv
 
-# get source csv path
+# get file path
 f1_path = os.path.join(".", "Resources", "budget_data.csv")
 f2_path = os.path.join(".", "analysis", "result.csv")
 
-# open/read source csv
+# open/read source data
 with open(f1_path, "r") as f1:
     f1_content = csv.reader(f1)
 
@@ -41,7 +41,7 @@ with open(f1_path, "r") as f1:
 with open(f2_path, "w", newline = "") as f2:
     f2_content = csv.writer(f2)
     f2_content.writerow(["Financial Analysis"])
-    f2_content.writerow([f"{'-'*80}"])
+    f2_content.writerow([f"{'-'*50}"])
     f2_content.writerow([f"Total Months: {row_count}"])
     f2_content.writerow([f"Total: ${total_value}"])
     f2_content.writerow([f"Average Change: ${sum_change/(row_count-1):.2f}"])
