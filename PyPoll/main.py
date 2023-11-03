@@ -33,24 +33,24 @@ with open(f1_path, "r") as f1:
             index = candidates.index(row[2])
             vote_count[index] += 1
 
-# find winner
+# identify winner
 winner_index = vote_count.index(max(vote_count))
 winner = candidates[winner_index]
 
 # calculate vote % for each candidate
 vote_percent = ["{:.3f}".format(v * 100 / tot_vote) + "%" for v in vote_count]
 
-# combine candidates and vote count
+# combine candidates, vote %, vote count
 candidate_vote = zip(candidates, vote_percent, vote_count)
 
 # open/write result csv
 with open(f2_path, "w", newline = '') as f2:
     f2_content = csv.writer(f2)
-    # header
+    # header & line
     f2_content.writerow(["Election Results"])
     f2_content.writerow([f"{'-'*50}"])
 
-    #total votes
+    #total votes & line
     f2_content.writerow([f"Total Votes: {tot_vote}"])
     f2_content.writerow([f"{'-'*50}"])
 
@@ -58,7 +58,7 @@ with open(f2_path, "w", newline = '') as f2:
     for item in candidate_vote:
         f2_content.writerow([f"{item[0]}: {item[1]} ({item[2]})"])
 
-    # winner, footer
+    # line & winner & line
     f2_content.writerow([f"{'-'*50}"])
     f2_content.writerow([f"Winner: {winner}"])
     f2_content.writerow([f"{'-'*50}"])

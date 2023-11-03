@@ -20,14 +20,18 @@ with open(f1_path, "r") as f1:
     row_count =  0
     sum_change = 0
 
-    # calculate row count, total, change, max/min changes/date
+    # calculate variables
     for row in f1_content:
+        # count of rows & sum of values
         row_count += 1
         total_value += int(row[1])
+
+        # change starts at 2nd row, sum of changes, reset last value
         row_change = 0 if last_value == "n/a" else int(row[1]) - int(last_value)
         sum_change += row_change
         last_value = row[1]
 
+        # identify/record max/min change/date
         if row_change > max_change:
             max_change = row_change
             max_date = str(row[0])
@@ -40,8 +44,12 @@ with open(f1_path, "r") as f1:
 # open/write result csv
 with open(f2_path, "w", newline = "") as f2:
     f2_content = csv.writer(f2)
+
+    # header & line
     f2_content.writerow(["Financial Analysis"])
     f2_content.writerow([f"{'-'*50}"])
+    
+    # total month & total value & average change & max change date/value & min change date/value
     f2_content.writerow([f"Total Months: {row_count}"])
     f2_content.writerow([f"Total: ${total_value}"])
     f2_content.writerow([f"Average Change: ${sum_change/(row_count-1):.2f}"])
