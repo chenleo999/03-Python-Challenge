@@ -1,7 +1,7 @@
 # import modules
 import os, csv
 
-# get file path
+# set file path
 f1_path = os.path.join(".", "Resources", "election_data.csv")
 f2_path = os.path.join(".", "analysis", "result.csv")
 
