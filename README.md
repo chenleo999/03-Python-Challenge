@@ -1,16 +1,16 @@
 # Python_Challenge
+
 ______________________________________________________________________
 PyBank 
 
 code: Python_Challenge\PyBank\main.py
+
 source file: Python_Challenge\PyBank\Resources\budget_data.csv
+
 result file: Python_Challenge\PyBank\analysis\result.csv
 
 Logic:
-read data from source file 
-    count data rows
-    calculate sum of profit/loss
-    calcuate changes of profit/loss between rows 
+read data from source file -> count data rows -> calculate sum of profit/loss -> calcuate changes of profit/loss between rows 
         calculate average change
         identify max and min change value and date
 write results into result file
